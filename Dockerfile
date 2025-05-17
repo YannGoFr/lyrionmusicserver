@@ -32,7 +32,7 @@ RUN mkdir -p /config /music /playlist /lms
 RUN wget https://downloads.lms-community.org/LyrionMusicServer_v9.0.2/lyrionmusicserver-9.0.2-arm-linux.tgz && \
     tar -xvzf lyrionmusicserver-9.0.2-arm-linux.tgz && \
     rm lyrionmusicserver-9.0.2-arm-linux.tgz && \
-    cp lyrionmusicserver-9.0.2-arm-linux/* /lms
+    cp lyrionmusicserver-9.0.2-arm-linux/* /lms && \
     rm -rf lyrionmusicserver-9.0.2-arm-linux
 
 COPY . /lms
