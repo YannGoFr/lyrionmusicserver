@@ -1,19 +1,19 @@
 #!/bin/bash
 
 #Set user and group
-umask 0002
-PUID=${PUID:-`id -u squeezeboxserver`}
-PGID=${PGID:-`id -g squeezeboxserver`}
+#umask 0002
+#PUID=${PUID:-`id -u squeezeboxserver`}
+#PGID=${PGID:-`id -g squeezeboxserver`}
 
 # Set uid of user squeezeboxserver to $PUID
-echo Set uid of user squeezeboxserver to $PUID
-usermod -o -u "$PUID" squeezeboxserver
+#echo Set uid of user squeezeboxserver to $PUID
+#usermod -o -u "$PUID" squeezeboxserver
 
 # Set id of group squeezeboxserver to $PGID and set gid of user squeezeboxserver to $PGID
-echo Set id of group squeezeboxserver to $PGID
-groupmod -o -g "$PGID" squeezeboxserver
-echo Set gid of user squeezeboxserver to $PGID
-usermod -g $PGID squeezeboxserver
+#echo Set id of group squeezeboxserver to $PGID
+#groupmod -o -g "$PGID" squeezeboxserver
+#echo Set gid of user squeezeboxserver to $PGID
+#usermod -g $PGID squeezeboxserver
 
 #Add permissions
 #chown -R squeezeboxserver:squeezeboxserver /config /playlist
