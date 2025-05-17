@@ -22,14 +22,14 @@ RUN adduser --system --group -uid=$PUID squeezeboxserver && \
 
 # Add startup script
 COPY start-container.sh /usr/bin/start-container
-RUN chmod +x /usr/bin/start-container
+# RUN chmod +x /usr/bin/start-container
 
 # Volume and port setup
 RUN mkdir -p /config /music /playlist /lms
 
 COPY . /lms
 COPY Slim-Utils-OS-Custom.pm /lms/Slim/Utils/OS/Custom.pm
-RUN chown -R squeezeboxserver:squeezeboxserver /config /playlist && chmod -R a+rX /lms
+# RUN chown -R squeezeboxserver:squeezeboxserver /config /playlist && chmod -R a+rX /lms
 
 VOLUME /config /music /playlist
 
