@@ -17,6 +17,7 @@ usermod -g $PGID squeezeboxserver
 
 #Add permissions
 # chown -R squeezeboxserver:squeezeboxserver /config /playlist
+chown -R squeezeboxserver:squeezeboxserver /config
 
 if [[ -f /config/custom-init.sh ]]; then
 	echo "Running custom initialization script..."
