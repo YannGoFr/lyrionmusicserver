@@ -36,7 +36,7 @@ RUN wget https://downloads.lms-community.org/LyrionMusicServer_v9.0.2/lyrionmusi
     rm -rf lyrionmusicserver-9.0.2-arm-linux
 
 # COPY . /lms
-COPY Slim-Utils-OS-Custom.pm /lms/Slim/Utils/OS/Custom.pm
+# COPY Slim-Utils-OS-Custom.pm /lms/Slim/Utils/OS/Custom.pm
 # RUN chown -R squeezeboxserver:squeezeboxserver /config /playlist && chmod -R a+rX /lms
 RUN chmod -R a+rX /lms
 
