@@ -35,5 +35,7 @@ mkdir -pv /config/prefs || echo "Erreur lors de la création du répertoire, con
 mkdir -pv /config/logs || echo "Erreur lors de la création du répertoire, continuation du script..."
 mkdir -pv /config/cache || echo "Erreur lors de la création du répertoire, continuation du script..."
 
+sleep 15
+
 su squeezeboxserver -s /bin/sh -c '/usr/bin/perl /lms/slimserver.pl --prefsdir /config/prefs --logdir /config/logs --cachedir /config/cache --httpport $HTTP_PORT $EXTRA_ARGS'
 # /bin/sh -c '/usr/bin/perl /lms/slimserver.pl --prefsdir /config/prefs --logdir /config/logs --cachedir /config/cache --httpport $HTTP_PORT $EXTRA_ARGS'
