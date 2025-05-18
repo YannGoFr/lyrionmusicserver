@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Set user and group
-umask 0002
+umask 0000
 #PUID=${PUID:-`id -u squeezeboxserver`}
 #PGID=${PGID:-`id -g squeezeboxserver`}
 
@@ -16,7 +16,7 @@ echo Set gid of user squeezeboxserver to $PGID
 usermod -g $PGID squeezeboxserver
 
 #Add permissions
-#chown -R squeezeboxserver:squeezeboxserver /config /playlist
+chown -R squeezeboxserver:squeezeboxserver /config /playlist
 
 if [[ -f /config/custom-init.sh ]]; then
 	echo "Running custom initialization script..."
@@ -27,6 +27,12 @@ echo Starting Lyrion Music Server on port $HTTP_PORT...
 if [[ -n "$EXTRA_ARGS" ]]; then
 	echo "Using additional arguments: $EXTRA_ARGS"
 fi
-# mkdir /config/prefs /config/logs /config/cache
+
+# Preparing /config folder
+#mkdir -pv /config/prefs /config/logs /config/cache
+mkdir -pv /config/prefs || echo "Erreur lors de la création du répertoire, continuation du script..."
+mkdir -pv /config/logs || echo "Erreur lors de la création du répertoire, continuation du script..."
+mkdir -pv /config/cache || echo "Erreur lors de la création du répertoire, continuation du script..."
+
 su squeezeboxserver -s /bin/sh -c '/usr/bin/perl /lms/slimserver.pl --prefsdir /config/prefs --logdir /config/logs --cachedir /config/cache --httpport $HTTP_PORT $EXTRA_ARGS'
 # /bin/sh -c '/usr/bin/perl /lms/slimserver.pl --prefsdir /config/prefs --logdir /config/logs --cachedir /config/cache --httpport $HTTP_PORT $EXTRA_ARGS'
