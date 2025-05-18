@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Set user and group
-umask 0000
+umask 000
 #PUID=${PUID:-`id -u squeezeboxserver`}
 #PGID=${PGID:-`id -g squeezeboxserver`}
 
