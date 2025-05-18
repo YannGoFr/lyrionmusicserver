@@ -7,11 +7,11 @@ umask 0000
 
 # Set uid of user squeezeboxserver to $PUID
 echo Set uid of user squeezeboxserver to $PUID
-usermod -o -u "$PUID" squeezeboxserver
+usermod -o -u $PUID squeezeboxserver
 
 # Set id of group squeezeboxserver to $PGID and set gid of user squeezeboxserver to $PGID
 echo Set id of group squeezeboxserver to $PGID
-groupmod -o -g "$PGID" squeezeboxserver
+groupmod -o -g $PGID squeezeboxserver
 echo Set gid of user squeezeboxserver to $PGID
 usermod -g $PGID squeezeboxserver
 
