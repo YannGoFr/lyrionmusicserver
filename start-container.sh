@@ -2,8 +2,8 @@
 
 #Set user and group
 umask 0002
-PUID=${PUID:-`id -u squeezeboxserver`}
-PGID=${PGID:-`id -g squeezeboxserver`}
+#PUID=${PUID:-`id -u squeezeboxserver`}
+#PGID=${PGID:-`id -g squeezeboxserver`}
 
 # Set uid of user squeezeboxserver to $PUID
 echo Set uid of user squeezeboxserver to $PUID
