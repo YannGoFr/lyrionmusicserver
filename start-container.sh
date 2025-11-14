@@ -2,21 +2,21 @@
 
 #Set user and group
 umask 0002
-PUID=${PUID:-`id -u squeezeboxserver`}
-PGID=${PGID:-`id -g squeezeboxserver`}
+PUID=${PUID:-`id -u yann`}
+PGID=${PGID:-`id -g users`}
 
 # Set uid of user squeezeboxserver to $PUID
-echo Set uid of user squeezeboxserver to $PUID
-usermod -o -u "$PUID" squeezeboxserver
+echo Set uid of user yann to $PUID
+usermod -o -u "$PUID" yann
 
 # Set id of group squeezeboxserver to $PGID and set gid of user squeezeboxserver to $PGID
-echo Set id of group squeezeboxserver to $PGID
-groupmod -o -g "$PGID" squeezeboxserver
-echo Set gid of user squeezeboxserver to $PGID
-usermod -g $PGID squeezeboxserver
+echo Set id of group users to $PGID
+groupmod -o -g "$PGID" users
+echo Set gid of user yann to $PGID
+usermod -g $PGID yann
 
 #Add permissions
-chown -R squeezeboxserver:squeezeboxserver /config /playlist
+chown -R yann:users /config /playlist
 
 if [[ -f /config/custom-init.sh ]]; then
 	echo "Running custom initialization script..."
@@ -27,4 +27,4 @@ echo Starting Lyrion Music Server on port $HTTP_PORT...
 if [[ -n "$EXTRA_ARGS" ]]; then
 	echo "Using additional arguments: $EXTRA_ARGS"
 fi
-su squeezeboxserver -s /bin/sh -c '/usr/bin/perl /lms/slimserver.pl --prefsdir /config/prefs --logdir /config/logs --cachedir /config/cache --httpport $HTTP_PORT $EXTRA_ARGS'
+su yann -s /bin/sh -c '/usr/bin/perl /lms/slimserver.pl --prefsdir /config/prefs --logdir /config/logs --cachedir /config/cache --httpport $HTTP_PORT $EXTRA_ARGS'
