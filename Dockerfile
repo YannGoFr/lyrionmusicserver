@@ -26,18 +26,19 @@ RUN chmod +x /usr/bin/start-container
 
 # Volume and port setup
 RUN mkdir -p /config /music /playlist /lms
+RUN chown -R squeezeboxserver:squeezeboxserver /config /playlist
 
 # Installation de Lyrion Music Server
 # RUN wget https://downloads.lms-community.org/LyrionMusicServer_v9.0.2/lyrionmusicserver-9.0.2.tgz && \
-RUN wget https://downloads.lms-community.org/LyrionMusicServer_v9.0.2/lyrionmusicserver-9.0.2-arm-linux.tgz && \
-    tar -xvzf lyrionmusicserver-9.0.2-arm-linux.tgz && \
-    rm lyrionmusicserver-9.0.2-arm-linux.tgz && \
-    mv ./lyrionmusicserver-9.0.2-arm-linux/* /lms && \
-    rm -rf lyrionmusicserver-9.0.2-arm-linux
+RUN wget https://downloads.lms-community.org/LyrionMusicServer_v9.0.3/lyrionmusicserver-9.0.3-arm-linux.tgz && \
+    tar -xvzf lyrionmusicserver-9.0.3-arm-linux.tgz && \
+    rm lyrionmusicserver-9.0.3-arm-linux.tgz && \
+    mv ./lyrionmusicserver-9.0.3-arm-linux/* /lms && \
+    rm -rf lyrionmusicserver-9.0.3-arm-linux
 
 # COPY . /lms
 COPY Slim-Utils-OS-Custom.pm /lms/Slim/Utils/OS/Custom.pm
-# RUN chown -R squeezeboxserver:squeezeboxserver /config /playlist && chmod -R a+rX /lms
+
 RUN chmod -R a+rX /lms
 
 VOLUME /config /music /playlist
