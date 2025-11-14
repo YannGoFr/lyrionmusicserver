@@ -18,7 +18,7 @@ RUN apt-get update -qq  && \
 RUN adduser --system --group -uid=$PUID yann && \
 	usermod -g $PGID users && \
 	usermod -d /home yann && \
-	usermod -a -G audio yann
+	usermod -a -G audio users
 
 # Add startup script
 COPY start-container.sh /usr/bin/start-container
