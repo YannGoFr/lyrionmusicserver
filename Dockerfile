@@ -15,10 +15,10 @@ RUN apt-get update -qq  && \
 	rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Add & configure user
-RUN adduser --system --group -uid=$PUID squeezeboxserver && \
-	usermod -g $PGID squeezeboxserver && \
-	usermod -d /home squeezeboxserver && \
-	usermod -a -G audio squeezeboxserver
+RUN adduser --system --group -uid=$PUID yann && \
+	usermod -g $PGID users && \
+	usermod -d /home yann && \
+	usermod -a -G audio yann
 
 # Add startup script
 COPY start-container.sh /usr/bin/start-container
@@ -26,7 +26,7 @@ RUN chmod +x /usr/bin/start-container
 
 # Volume and port setup
 RUN mkdir -p /config /music /playlist /lms
-RUN chown -R squeezeboxserver:squeezeboxserver /config /playlist
+RUN chown -R yann:users /config /playlist
 
 # Installation de Lyrion Music Server
 # RUN wget https://downloads.lms-community.org/LyrionMusicServer_v9.0.2/lyrionmusicserver-9.0.2.tgz && \
