@@ -16,7 +16,7 @@ RUN apt-get update -qq  && \
 
 # Add & configure user
 RUN adduser --system --group -uid=$PUID yann && \
-	usermod -g $PGID users && \
+	usermod -g $PGID yann && \
 	usermod -d /home yann && \
 	usermod -a -G audio yann && \
 	usermod -a -G users yann
