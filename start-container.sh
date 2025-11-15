@@ -16,7 +16,7 @@ echo Set gid of user yann to $PGID
 usermod -g $PGID yann
 
 #Add permissions
-chown -R yann:users /config /playlist
+#chown -R yann:users /config /playlist
 
 if [[ -f /config/custom-init.sh ]]; then
 	echo "Running custom initialization script..."
