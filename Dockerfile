@@ -15,10 +15,12 @@ RUN apt-get update -qq  && \
 	rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Add & configure user
-RUN adduser --system --group -uid=$PUID yann && \
+RUN addgroup users && \
+    adduser --system -uid=$PUID yann && \
 	usermod -g $PGID users && \
 	usermod -d /home yann && \
-	usermod -a -G audio users
+	usermod -a -G audio yann && \
+	usermod -a -G users
 
 # Add startup script
 COPY start-container.sh /usr/bin/start-container
