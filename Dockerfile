@@ -38,7 +38,7 @@ RUN wget https://downloads.lms-community.org/LyrionMusicServer_v9.0.3/lyrionmusi
     rm -rf lyrionmusicserver-9.0.3-arm-linux
 
 # COPY . /lms
-COPY Slim-Utils-OS-Custom.pm /lms/Slim/Utils/OS/Custom.pm
+# COPY Slim-Utils-OS-Custom.pm /lms/Slim/Utils/OS/Custom.pm
 
 RUN chmod -R a+rX /lms
 
